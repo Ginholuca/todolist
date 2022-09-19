@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     color: '#000',
   },
   logo: {
-    width: '100%',
+    width: 250,
     height: 70,
   },
   top: {
