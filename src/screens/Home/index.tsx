@@ -1,9 +1,10 @@
 import React from 'react'
-import { View, Text, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import { styles } from './styles'
 
 import LogoSvg from '../../assets/Logo.svg'
 import PlusSvg from '@assets/plus.svg'
+import ClipboardSvg from '@assets/Clipboard.svg'
 
 export function Home() {
   return (
@@ -47,6 +48,26 @@ export function Home() {
           <Text style={styles.zero}>0</Text>
         </View>
       </View>
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => (
+          <>
+            <View style={styles.flat}>
+              <ClipboardSvg
+                style={{ top: 60, left: 0 }}
+                height={80}
+                width={100}
+              />
+              <Text style={styles.listEmptyText}>
+                Você ainda não tem tarefas cadastradas
+              </Text>
+              <Text style={styles.listEmptyText2}>
+                Crie tarefas e organize seus itens a fazer
+              </Text>
+            </View>
+          </>
+        )}
+      />
     </View>
   )
 }

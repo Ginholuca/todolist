@@ -93,4 +93,22 @@ export const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 10,
   },
+  listEmptyText: {
+    marginTop: 100,
+    textAlign: 'center',
+    color: '#808080',
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+  listEmptyText2: {
+    paddingTop: 5,
+    textAlign: 'center',
+    color: '#555555',
+    fontSize: 14,
+  },
+  flat: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 })
