@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native'
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+  Alert,
+} from 'react-native'
 import { styles } from './styles'
 
 import { Task } from '@components/Tasks'
@@ -10,6 +17,13 @@ import ClipboardSvg from '@assets/Clipboard.svg'
 
 export function Home() {
   const [tasks, setTasks] = useState<string[]>([])
+  const [taskName, setTaskName] = useState('')
+
+  function handleAddTask() {
+    if (tasks.includes(taskName))
+      setTasks((prevState) => [...prevState, taskName])
+    setTaskName('')
+  }
 
   return (
     <View style={styles.container}>
@@ -29,14 +43,11 @@ export function Home() {
           style={styles.input}
           placeholder="Adicione uma nova tarefa"
           placeholderTextColor="#6B6B6B"
-          // onChangeText={setParticipantName}
-          // value={participantName}
+          onChangeText={setTaskName}
+          value={taskName}
         />
 
-        <TouchableOpacity
-          style={styles.button}
-          // onPress={handleParticipantAdd}
-        >
+        <TouchableOpacity style={styles.button} onPress={handleAddTask}>
           <Text style={styles.buttonText}>
             <PlusSvg height={62} width={22} />
           </Text>
@@ -56,7 +67,7 @@ export function Home() {
       <FlatList
         data={tasks}
         keyExtractor={(item) => item}
-        renderItem={({ item }) => <Task />}
+        renderItem={({ item }) => <Task key={item} name={item} />}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <>
