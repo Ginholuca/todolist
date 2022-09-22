@@ -3,10 +3,12 @@ import { StyleSheet } from 'react-native'
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    backgroundColor: '#1F1E25',
+    marginHorizontal: 10,
+    backgroundColor: '#262626',
     borderRadius: 5,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 10,
   },
 
@@ -23,10 +25,11 @@ export const styles = StyleSheet.create({
   },
 
   button: {
+    marginRight: 20,
     width: 56,
     height: 56,
     borderRadius: 5,
-    backgroundColor: '#E23C44',
+    backgroundColor: '#262626',
     alignItems: 'center',
     justifyContent: 'center',
   },

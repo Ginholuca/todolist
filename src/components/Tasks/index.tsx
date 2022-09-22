@@ -4,10 +4,10 @@ import { styles } from './styles'
 
 type Props = {
   name: string
-  onRemove: () => void
+  // onRemove: () => void
 }
 
-export function Task({ name, onRemove }: Props) {
+export function Task({ name }: Props) {
   // usando (props) tbm serve
   return (
     <View style={styles.container}>
@@ -16,7 +16,7 @@ export function Task({ name, onRemove }: Props) {
         {name}
       </Text>
 
-      <TouchableOpacity style={styles.button} onPress={onRemove}>
+      <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>-</Text>
       </TouchableOpacity>
     </View>

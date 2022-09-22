@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import { styles } from './styles'
 
@@ -9,6 +9,8 @@ import PlusSvg from '@assets/plus.svg'
 import ClipboardSvg from '@assets/Clipboard.svg'
 
 export function Home() {
+  const [tasks, setTasks] = useState<string[]>([])
+
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -50,8 +52,11 @@ export function Home() {
           <Text style={styles.zero}>0</Text>
         </View>
       </View>
-      <Task name={'sexo'} onRemove={} />
+
       <FlatList
+        data={tasks}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => <Task />}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <>

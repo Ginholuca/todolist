@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     color: '#000',
   },
   top: {
-    width: 375,
+    width: '100%',
     height: 173,
     backgroundColor: '#0D0D0D',
     top: 0,
@@ -60,6 +60,7 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 2,
     marginHorizontal: 18,
     borderColor: '#262626',
+    marginBottom: 20,
   },
 
   created: {
