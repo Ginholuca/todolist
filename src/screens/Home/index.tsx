@@ -11,7 +11,7 @@ import { styles } from './styles'
 
 import { Task } from '@components/Tasks'
 
-import LogoSvg from '../../assets/Logo.svg'
+import LogoSvg from '@assets/Logo.svg'
 import PlusSvg from '@assets/plus.svg'
 import ClipboardSvg from '@assets/Clipboard.svg'
 
