@@ -2,6 +2,8 @@ import React from 'react'
 import { View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import { styles } from './styles'
 
+import { Task } from '@components/Tasks'
+
 import LogoSvg from '../../assets/Logo.svg'
 import PlusSvg from '@assets/plus.svg'
 import ClipboardSvg from '@assets/Clipboard.svg'
@@ -48,6 +50,7 @@ export function Home() {
           <Text style={styles.zero}>0</Text>
         </View>
       </View>
+      <Task name={'sexo'} onRemove={} />
       <FlatList
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
