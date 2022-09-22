@@ -19,10 +19,26 @@ export function Home() {
   const [tasks, setTasks] = useState<string[]>([])
   const [taskName, setTaskName] = useState('')
 
-  function handleAddTask() {
-    if (tasks.includes(taskName))
-      setTasks((prevState) => [...prevState, taskName])
+  function handleTaskAdd() {
+    if (tasks.includes(taskName)) {
+      return Alert.alert('Opa!', `Você já adicionou essa tarefa.`)
+    }
+    setTasks((prevState) => [...prevState, taskName])
     setTaskName('')
+  }
+
+  function handleTaskRemove(name: string) {
+    Alert.alert('Remover!', 'Deseja remover essa tarefa?', [
+      {
+        text: 'Sim',
+        onPress: () =>
+          setTasks((prevState) => prevState.filter((task) => task !== name)),
+      },
+      {
+        text: 'Não',
+        style: 'cancel',
+      },
+    ])
   }
 
   return (
@@ -47,10 +63,8 @@ export function Home() {
           value={taskName}
         />
 
-        <TouchableOpacity style={styles.button} onPress={handleAddTask}>
-          <Text style={styles.buttonText}>
-            <PlusSvg height={62} width={22} />
-          </Text>
+        <TouchableOpacity style={styles.button} onPress={handleTaskAdd}>
+          <PlusSvg height={62} width={22} />
         </TouchableOpacity>
       </View>
       <View style={styles.below}>
@@ -67,7 +81,13 @@ export function Home() {
       <FlatList
         data={tasks}
         keyExtractor={(item) => item}
-        renderItem={({ item }) => <Task key={item} name={item} />}
+        renderItem={({ item }) => (
+          <Task
+            key={item}
+            name={item}
+            onRemove={() => handleTaskRemove(item)}
+          />
+        )}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <>

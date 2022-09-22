@@ -2,12 +2,14 @@ import { View, Text, TouchableOpacity } from 'react-native'
 
 import { styles } from './styles'
 
+import TrashSvg from '@assets/Layer2.svg'
+
 type Props = {
   name: string
-  // onRemove: () => void
+  onRemove: () => void
 }
 
-export function Task({ name }: Props) {
+export function Task({ name, onRemove }: Props) {
   // usando (props) tbm serve
   return (
     <View style={styles.container}>
@@ -16,8 +18,8 @@ export function Task({ name }: Props) {
         {name}
       </Text>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>-</Text>
+      <TouchableOpacity style={styles.button} onPress={onRemove}>
+        <TrashSvg style={styles.buttonText} />
       </TouchableOpacity>
     </View>
   )
