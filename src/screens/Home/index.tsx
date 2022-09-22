@@ -28,7 +28,7 @@ export function Home() {
   }
 
   function handleTaskRemove(name: string) {
-    Alert.alert('Remover!', 'Deseja remover essa tarefa?', [
+    Alert.alert('Remover', 'Deseja remover essa tarefa?', [
       {
         text: 'Sim',
         onPress: () =>
