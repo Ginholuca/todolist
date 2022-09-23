@@ -19,6 +19,8 @@ export function Home() {
   const [tasks, setTasks] = useState<string[]>([])
   const [taskName, setTaskName] = useState('')
 
+  const uniquetask = [{ text: 'Sexo', id: 1 }]
+
   function handleTaskAdd() {
     if (tasks.includes(taskName)) {
       return Alert.alert('Opa!', `Você já adicionou essa tarefa.`)

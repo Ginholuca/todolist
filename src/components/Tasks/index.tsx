@@ -15,7 +15,9 @@ export function Task({ name, onRemove }: Props) {
   // usando (props) tbm serve
   return (
     <View style={styles.container}>
-      <CheckSvg style={{ marginLeft: 10 }} />
+      <TouchableOpacity>
+        <CheckSvg style={{ marginLeft: 10 }} />
+      </TouchableOpacity>
       {/* <PurpleSvg /> */}
 
       <Text style={styles.name}>
