@@ -19,14 +19,26 @@ export function Home() {
   const [tasks, setTasks] = useState<string[]>([])
   const [taskName, setTaskName] = useState('')
 
-  const uniquetask = [{ text: 'Sexo', id: 1 }]
-
   function handleTaskAdd() {
-    if (tasks.includes(taskName)) {
-      return Alert.alert('Opa!', `Você já adicionou essa tarefa.`)
+    if (taskName == '') {
+      Alert.alert('Erro', 'Insira uma tarefa')
+    } else {
+      if (tasks.includes(taskName)) {
+        return Alert.alert('Opa!', `Você já adicionou essa tarefa.`)
+      }
+      setTasks((prevState) => [...prevState, taskName])
+      setTaskName('')
     }
-    setTasks((prevState) => [...prevState, taskName])
-    setTaskName('')
+  }
+
+  const markTaskComplete = (taskId) => {
+    const newTask = tasks.map((item) => {
+      if (item.id == taskId) {
+        return { ...item, completed: true }
+      }
+      return item
+    })
+    setTasks(newTask)
   }
 
   function handleTaskRemove(name: string) {

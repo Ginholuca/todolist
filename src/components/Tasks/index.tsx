@@ -16,7 +16,7 @@ export function Task({ name, onRemove }: Props) {
   return (
     <View style={styles.container}>
       <TouchableOpacity>
-        <CheckSvg style={{ marginLeft: 10 }} />
+        <CheckSvg style={{ marginLeft: 10 }} onPress={markTaskComplete} />
       </TouchableOpacity>
       {/* <PurpleSvg /> */}
 
