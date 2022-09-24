@@ -20,7 +20,7 @@ export function Home() {
   const [taskName, setTaskName] = useState('')
 
   function handleTaskAdd() {
-    if (taskName == '') {
+    if (taskName === '') {
       Alert.alert('Erro', 'Insira uma tarefa')
     } else {
       if (tasks.includes(taskName)) {
@@ -29,16 +29,6 @@ export function Home() {
       setTasks((prevState) => [...prevState, taskName])
       setTaskName('')
     }
-  }
-
-  const markTaskComplete = (taskId) => {
-    const newTask = tasks.map((item) => {
-      if (item.id == taskId) {
-        return { ...item, completed: true }
-      }
-      return item
-    })
-    setTasks(newTask)
   }
 
   function handleTaskRemove(name: string) {
