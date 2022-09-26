@@ -79,7 +79,7 @@ export function Home() {
         </View>
         <Text style={styles.completed}>Concluídas</Text>
         <View style={styles.zeroborder}>
-          <Text style={styles.zero}>{checked.length}</Text>
+          <Text style={styles.zero}>0</Text>
         </View>
       </View>
 

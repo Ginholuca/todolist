@@ -5,6 +5,7 @@ import { styles } from './styles'
 import TrashSvg from '@assets/Layer2.svg'
 import CheckSvg from '@assets/check.svg'
 // import PurpleSvg from '@assets/purple.svg'
+import AnimatedCheckbox from 'react-native-checkbox-reanimated'
 
 type Props = {
   name: string
