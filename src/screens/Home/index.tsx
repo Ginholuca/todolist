@@ -10,6 +10,7 @@ import {
 import { styles } from './styles'
 
 import { Task } from '@components/Tasks'
+import Check from '@components/Check'
 
 import LogoSvg from '@assets/Logo.svg'
 import PlusSvg from '@assets/plus.svg'
@@ -18,7 +19,7 @@ import ClipboardSvg from '@assets/Clipboard.svg'
 export function Home() {
   const [tasks, setTasks] = useState<string[]>([])
   const [taskName, setTaskName] = useState('')
-  const [completed, setCompleted] = useState(0)
+  const [checked] = useState<string[]>([])
 
   function handleTaskAdd() {
     if (taskName === '') {
@@ -79,7 +80,7 @@ export function Home() {
         </View>
         <Text style={styles.completed}>Concluídas</Text>
         <View style={styles.zeroborder}>
-          <Text style={styles.zero}>0</Text>
+          <Text style={styles.zero}>{isLiked.length}</Text>
         </View>
       </View>
 
