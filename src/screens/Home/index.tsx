@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useState } from 'react'
 import {
   View,
   Text,
@@ -10,7 +10,6 @@ import {
 import { styles } from './styles'
 
 import { Task } from '@components/Tasks'
-import Check from '@components/Check'
 
 import LogoSvg from '@assets/Logo.svg'
 import PlusSvg from '@assets/plus.svg'
