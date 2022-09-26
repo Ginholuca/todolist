@@ -117,6 +117,7 @@ export function Home() {
       <FlatList
         data={tasks}
         keyExtractor={(item) => String(item.id)}
+        contentContainerStyle={{ marginRight: 20 }}
         renderItem={({ item }) => (
           <Task
             task={item}
