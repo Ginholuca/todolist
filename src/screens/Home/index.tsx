@@ -49,8 +49,8 @@ export function Home() {
   }
 
   const handlePressCheckbox = useCallback(() => {
-    setChecked
-  })
+    setChecked((prevState) => !prevState)
+  }, [])
 
   return (
     <View style={styles.container}>
