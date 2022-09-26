@@ -4,7 +4,6 @@ import { styles } from './styles'
 
 import TrashSvg from '@assets/Layer2.svg'
 import CheckSvg from '@assets/check.svg'
-import { CheckBox } from '@components/Check'
 // import PurpleSvg from '@assets/purple.svg'
 
 type Props = {

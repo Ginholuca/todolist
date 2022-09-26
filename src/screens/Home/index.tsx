@@ -18,8 +18,6 @@ import ClipboardSvg from '@assets/Clipboard.svg'
 export function Home() {
   const [tasks, setTasks] = useState<string[]>([])
   const [taskName, setTaskName] = useState('')
-  const [checked, setChecked] = useState(false)
-  const [created, setCreated] = useState(0)
   const [completed, setCompleted] = useState(0)
 
   function handleTaskAdd() {
@@ -47,10 +45,6 @@ export function Home() {
       },
     ])
   }
-
-  const handlePressCheckbox = useCallback(() => {
-    setChecked((prevState) => !prevState)
-  }, [])
 
   return (
     <View style={styles.container}>
@@ -81,11 +75,11 @@ export function Home() {
       <View style={styles.below}>
         <Text style={styles.created}>Criadas</Text>
         <View style={styles.zeroborder}>
-          <Text style={styles.zero}></Text>
+          <Text style={styles.zero}>{tasks.length}</Text>
         </View>
         <Text style={styles.completed}>Concluídas</Text>
         <View style={styles.zeroborder}>
-          <Text style={styles.zero}>{completed}</Text>
+          <Text style={styles.zero}>{checked.length}</Text>
         </View>
       </View>
 
