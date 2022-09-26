@@ -15,35 +15,66 @@ import LogoSvg from '@assets/Logo.svg'
 import PlusSvg from '@assets/plus.svg'
 import ClipboardSvg from '@assets/Clipboard.svg'
 
+interface Props {
+  id: number
+  name: string
+  finished: boolean
+}
+
 export function Home() {
-  const [tasks, setTasks] = useState<string[]>([])
+  const [tasks, setTasks] = useState<Props[]>([])
   const [taskName, setTaskName] = useState('')
-  const [checked] = useState<string[]>([])
+
+  const tasksFinished = tasks.filter(
+    (taskFiltered) => taskFiltered.finished === true,
+  ).length
 
   function handleTaskAdd() {
     if (taskName === '') {
       Alert.alert('Erro', 'Insira uma tarefa')
     } else {
-      if (tasks.includes(taskName)) {
-        return Alert.alert('Opa!', `Você já adicionou essa tarefa.`)
+      if (!taskName.trim()) {
+        return Alert.alert(
+          'Tarefa já cadastrada!',
+          'Já existe um tarefa na lista com esse nome.',
+        )
       }
-      setTasks((prevState) => [...prevState, taskName])
+
+      setTasks((prevState) => [
+        ...prevState,
+        { id: Math.random(), name: taskName, finished: false },
+      ])
       setTaskName('')
     }
   }
 
-  function handleTaskRemove(name: string) {
-    Alert.alert('Remover', 'Deseja remover essa tarefa?', [
+  function handleRemoveTask(taskName: string) {
+    Alert.alert('Remover', `Remover a tarefa ${taskName}?`, [
       {
         text: 'Sim',
         onPress: () =>
-          setTasks((prevState) => prevState.filter((task) => task !== name)),
+          setTasks((prevState) =>
+            prevState.filter((task) => task.name !== taskName),
+          ),
       },
       {
         text: 'Não',
         style: 'cancel',
       },
     ])
+  }
+
+  function handleFinishTask(taskName: string) {
+    const finishedTasks = tasks.map((task) => {
+      if (task.name === taskName) {
+        return {
+          ...task,
+          finished: !task.finished,
+        }
+      }
+      return task
+    })
+    setTasks(finishedTasks)
   }
 
   return (
@@ -79,18 +110,18 @@ export function Home() {
         </View>
         <Text style={styles.completed}>Concluídas</Text>
         <View style={styles.zeroborder}>
-          <Text style={styles.zero}>{checked.length}</Text>
+          <Text style={styles.zero}>{tasksFinished}</Text>
         </View>
       </View>
 
       <FlatList
         data={tasks}
-        keyExtractor={(item) => item}
+        keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => (
           <Task
-            key={item}
-            name={item}
-            onRemove={() => handleTaskRemove(item)}
+            task={item}
+            onRemove={() => handleRemoveTask(item.name)}
+            onFinished={() => handleFinishTask(item.name)}
           />
         )}
         showsVerticalScrollIndicator={false}

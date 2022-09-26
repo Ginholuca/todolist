@@ -36,4 +36,12 @@ export const styles = StyleSheet.create({
   checked: {
     marginLeft: 15,
   },
+
+  taskNameFinished: {
+    flex: 1,
+    fontSize: 16,
+    color: '#808080',
+    marginLeft: 16,
+    textDecorationLine: 'line-through',
+  },
 })

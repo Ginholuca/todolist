@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { PanGestureHandlerProps } from 'react-native-gesture-handler'
+import React from 'react'
+
 import { View, Text, TouchableOpacity } from 'react-native'
 import { styles } from './styles'
 
@@ -8,29 +8,28 @@ import PurpleSvg from '@assets/purple.svg'
 
 import TrashSvg from '@assets/Layer2.svg'
 
-interface Props extends Pick<PanGestureHandlerProps, 'simultaneousHandlers'> {
-  name: string
-  onRemove?: () => void
+type Props = {
+  task: {
+    name: string
+    finished: boolean
+  }
+  onRemove: () => void
+  onFinished: () => void
 }
 
-export function Task({ name, onRemove }: Props) {
-  const [isLiked, setIsLiked] = useState(false)
+export function Task({ task, onRemove, onFinished }: Props) {
   // usando (props) tbm serve
-  const handleLikePress = () => {
-    setIsLiked(!isLiked)
-  }
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={handleLikePress}>
-        {isLiked ? <PurpleSvg /> : <CheckSvg />}
+      <TouchableOpacity onPress={onFinished}>
+        {task.finished ? <CheckSvg /> : <PurpleSvg />}
       </TouchableOpacity>
-      {/* <PurpleSvg /> */}
-
-      <Text style={styles.name}>
-        {/* Dai ficaria {props.name} */}
-        {name}
-      </Text>
+      {task.finished ? (
+        <Text style={styles.taskNameFinished}>{task.name}</Text>
+      ) : (
+        <Text style={styles.name}>{task.name}</Text>
+      )}
 
       <TouchableOpacity style={styles.button} onPress={onRemove}>
         <TrashSvg />
