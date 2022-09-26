@@ -22,8 +22,8 @@ export function Task({ task, onRemove, onFinished }: Props) {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onFinished}>
-        {task.finished ? <CheckSvg /> : <PurpleSvg />}
+      <TouchableOpacity style={{ marginLeft: 10 }} onPress={onFinished}>
+        {task.finished ? <PurpleSvg /> : <CheckSvg />}
       </TouchableOpacity>
       {task.finished ? (
         <Text style={styles.taskNameFinished}>{task.name}</Text>

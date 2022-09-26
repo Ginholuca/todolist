@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
   },
 
   button: {
-    marginRight: 20,
+    marginRight: 10,
     width: 56,
     height: 56,
     borderRadius: 5,

@@ -48,7 +48,7 @@ export function Home() {
     }
   }
 
-  function handleRemoveTask(taskName: string) {
+  function handleTaskRemove(taskName: string) {
     Alert.alert('Remover', `Remover a tarefa ${taskName}?`, [
       {
         text: 'Sim',
@@ -120,7 +120,7 @@ export function Home() {
         renderItem={({ item }) => (
           <Task
             task={item}
-            onRemove={() => handleRemoveTask(item.name)}
+            onRemove={() => handleTaskRemove(item.name)}
             onFinished={() => handleFinishTask(item.name)}
           />
         )}
