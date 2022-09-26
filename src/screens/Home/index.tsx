@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import {
   View,
   Text,
@@ -18,6 +18,9 @@ import ClipboardSvg from '@assets/Clipboard.svg'
 export function Home() {
   const [tasks, setTasks] = useState<string[]>([])
   const [taskName, setTaskName] = useState('')
+  const [checked, setChecked] = useState(false)
+  const [created, setCreated] = useState(0)
+  const [completed, setCompleted] = useState(0)
 
   function handleTaskAdd() {
     if (taskName === '') {
@@ -44,6 +47,10 @@ export function Home() {
       },
     ])
   }
+
+  const handlePressCheckbox = useCallback(() => {
+    setChecked
+  })
 
   return (
     <View style={styles.container}>
@@ -74,11 +81,11 @@ export function Home() {
       <View style={styles.below}>
         <Text style={styles.created}>Criadas</Text>
         <View style={styles.zeroborder}>
-          <Text style={styles.zero}>0</Text>
+          <Text style={styles.zero}></Text>
         </View>
         <Text style={styles.completed}>Concluídas</Text>
         <View style={styles.zeroborder}>
-          <Text style={styles.zero}>0</Text>
+          <Text style={styles.zero}>{completed}</Text>
         </View>
       </View>
 
