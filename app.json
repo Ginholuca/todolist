@@ -4,12 +4,13 @@
     "slug": "ToDoList",
     "version": "1.0.0",
     "orientation": "portrait",
+    "plataforms": ["ios", "android"],
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#1A1A1A"
+      "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,13 +23,15 @@
       "sourceExts": ["js", "jsx", "ts", "tsx", "svg"]
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ginholuca.todolist"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.ginholuca.todolist"
     },
     "web": {
       "favicon": "./assets/favicon.png"
