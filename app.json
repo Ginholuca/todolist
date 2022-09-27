@@ -4,7 +4,6 @@
     "slug": "ToDoList",
     "version": "1.0.0",
     "orientation": "portrait",
-    "plataforms": ["ios", "android"],
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
